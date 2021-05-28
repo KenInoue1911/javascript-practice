@@ -48,8 +48,14 @@ function changeImage(num) {
   if(current + num >= 0 && current + num < images.length) {
     current += num;
    document.getElementById('main_image').src = images[current];
+   pageNum();
   }
 };
+
+function pageNum() {
+  document.getElementById('page').textContent = `${current + 1}/${images.length}`;
+}
+pageNum();
 
 document.getElementById('prev').onclick = function() {
   changeImage(-1);
@@ -83,6 +89,9 @@ img {
   width: 16px;
   height: 16px;
   background: url(images/arrow-left.svg) no-repeat;
+}
+#page {
+  color: white;
 }
 #next {
   margin-left: 0.5rem;
